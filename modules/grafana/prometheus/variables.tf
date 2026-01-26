@@ -15,7 +15,7 @@ variable "env_name" {
 
 variable "cluster_name" {
   type    = string
-  default = "dominion-cluster"
+  default = "fintek-cluster"
 }
 
 variable "oidc_provider_arn" {

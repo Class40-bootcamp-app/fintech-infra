@@ -1,6 +1,6 @@
 variable "aws_account_id" {
   description = "AWS Account ID"
-  default     = "999568710647"
+  default     = "805703880776"
 }
 
 variable "repositories" {
