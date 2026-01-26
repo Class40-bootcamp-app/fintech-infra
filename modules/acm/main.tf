@@ -3,10 +3,10 @@ provider "aws" {
 }
 
 resource "aws_acm_certificate" "fusisoft_cert" {
-  domain_name       = var.domain_name
+  domain_name               = var.domain_name
   subject_alternative_names = var.san_domains
-  validation_method = "DNS"
-  tags = var.tags
+  validation_method         = "DNS"
+  tags                      = var.tags
   lifecycle {
     create_before_destroy = true
   }
@@ -22,11 +22,11 @@ resource "aws_route53_record" "cert_validation" {
     }
   }
 
-  zone_id         = var.route53_zone_id
-  name            = each.value.name
-  type            = each.value.type
-  records         = [each.value.record]
-  ttl             = 60
+  zone_id = var.route53_zone_id
+  name    = each.value.name
+  type    = each.value.type
+  records = [each.value.record]
+  ttl     = 60
 
   # allow Terraform to UPSERT the record if it already exists
   allow_overwrite = true

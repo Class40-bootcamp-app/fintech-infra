@@ -34,7 +34,7 @@ variable "tags" {
   description = "Common tags for all resources"
   type        = map(string)
   default = {
-    devuct   = "fintech-app"
+    devuct    = "fintech-app"
     ManagedBy = "terraform"
   }
 }
