@@ -102,7 +102,7 @@ module "eks" {
   }
 
   ##############################################
-  # Access entries IAM Identity Center or user/role mapping
+  # Access entries (IAM) Identity Center or user/role mapping
   ##############################################
   access_entries = {
     fusi = {
