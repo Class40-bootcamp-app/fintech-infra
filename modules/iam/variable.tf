@@ -28,7 +28,7 @@ variable "eks_oidc_provider" {
 variable "tags" {
   description = "Common tags for the cluster resources"
   type        = map(string)
-  default     = {
+  default = {
     terraform = "true"
   }
 }

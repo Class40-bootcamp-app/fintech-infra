@@ -12,7 +12,7 @@ variable "repositories" {
 variable "tags" {
   description = "Common tags for the cluster resources"
   type        = map(string)
-  default     = {
+  default = {
     env       = "dev",
     terraform = "true"
   }

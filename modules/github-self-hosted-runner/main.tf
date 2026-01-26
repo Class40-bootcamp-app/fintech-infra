@@ -9,7 +9,7 @@ data "aws_caller_identity" "current" {}
 data "aws_ami" "ubuntu_latest" {
   count       = var.ami_id == "" ? 1 : 0
   most_recent = true
-  owners      = ["099720109477"]  # Canonical's Ubuntu Owner ID
+  owners      = ["099720109477"] # Canonical's Ubuntu Owner ID
 
   filter {
     name   = "name"
@@ -90,13 +90,13 @@ resource "aws_iam_instance_profile" "github_runner_ssm_profile" {
 
 
 resource "aws_instance" "github-self-hosted-runner" {
-  ami           = var.ami_id
+  ami                    = var.ami_id
   iam_instance_profile   = aws_iam_instance_profile.github_runner_ssm_profile.name
-  instance_type = var.instance_type
-  key_name      = var.key_name
-  user_data     = file("${path.module}/terraform.sh")
-  vpc_security_group_ids      = [var.security_group_id]
-  subnet_id                   = var.subnet_id
+  instance_type          = var.instance_type
+  key_name               = var.key_name
+  user_data              = file("${path.module}/terraform.sh")
+  vpc_security_group_ids = [var.security_group_id]
+  subnet_id              = var.subnet_id
 
   tags = {
     Name = "self-hosted-runner"

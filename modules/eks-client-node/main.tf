@@ -9,7 +9,7 @@ data "aws_caller_identity" "current" {}
 data "aws_ami" "ubuntu_latest" {
   count       = var.ami_id == "" ? 1 : 0
   most_recent = true
-  owners      = ["099720109477"]  # Canonical's Ubuntu Owner ID
+  owners      = ["099720109477"] # Canonical's Ubuntu Owner ID
 
   filter {
     name   = "name"
@@ -108,7 +108,7 @@ resource "aws_instance" "eks_client_node" {
     delete_on_termination = true
   }
 
-  user_data                   = file("${path.module}/install-tools.sh")
+  user_data = file("${path.module}/install-tools.sh")
 
   depends_on = [
     aws_iam_instance_profile.eks_client_ssm_profile
@@ -117,7 +117,7 @@ resource "aws_instance" "eks_client_node" {
 
 resource "aws_eip" "eks_client_eip" {
   instance = aws_instance.eks_client_node.id
-  domain = "vpc"
+  domain   = "vpc"
 
   depends_on = [
     aws_instance.eks_client_node
@@ -128,7 +128,7 @@ resource "aws_eip" "eks_client_eip" {
 #############################
 # Security Group for EKS Client Node
 #############################resource "aws_security_group" "eks_client_sg" {
-  resource "aws_security_group" "eks_client_sg" {
+resource "aws_security_group" "eks_client_sg" {
   name        = "eks-client-sg"
   description = "Security group for EKS client instance with SSM access and SSH access"
   vpc_id      = var.vpc_id
@@ -145,9 +145,9 @@ resource "aws_eip" "eks_client_eip" {
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-   }
+  }
 
-   ingress {
+  ingress {
     from_port   = 9000
     to_port     = 9000
     protocol    = "tcp"
