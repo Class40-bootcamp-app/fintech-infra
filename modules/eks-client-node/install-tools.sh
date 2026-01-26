@@ -117,7 +117,7 @@ kubectl version --client --short
 
 #--- dynamic EKS kubeconfig update -----------------------------------------
 # Strategy:
-# 1) REGION: AWS_REGION/AWS_DEFAULT_REGION -> IMDSv2 -> AWS config -> us-east-1
+# 1) REGION: AWS_REGION/AWS_DEFAULT_REGION -> IMDSv2 -> AWS config -> us-east-2
 # 2) CLUSTER: EKS_CLUSTER_NAME -> CLUSTER_PATTERN match -> single cluster -> newest cluster
 
 discover_region() {
@@ -140,7 +140,7 @@ discover_region() {
   cfg_region="$(aws configure get region 2>/dev/null || true)"
   if [[ -n "$cfg_region" ]]; then echo "$cfg_region"; return; fi
 
-  echo "us-east-1"
+  echo "us-east-2"
 }
 
 discover_cluster() {

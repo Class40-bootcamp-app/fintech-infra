@@ -2,19 +2,19 @@
 variable "domain_name" {
   description = "Primary domain name for the certificate"
   type        = string
-  default     = "fusisoft.com"
+  default     = "shollztech.com"
 }
 
 variable "san_domains" {
   description = "Subject alternative names for the certificate"
   type        = list(string)
-  default     = ["*.fusisoft.com"]
+  default     = ["*.shollztech.com"]
 }
 
 variable "route53_zone_id" {
   description = "Route 53 Hosted Zone ID"
   type        = string
-  default     = "ZC7WDABJDII2" # Replace with actual Route 53 Zone ID
+  default     = "Z03264633PG0FWPLRFFA9" # Replace with actual Route 53 Zone ID
 }
 
 variable "tags" {
