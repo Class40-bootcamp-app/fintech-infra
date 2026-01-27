@@ -2,7 +2,7 @@
 # Service Account for IRSA
 ################################################################################
 
-resource "kubernetes_service_account" "service_account" {
+resource "kubernetes_service_account_v1" "service_account" {
   metadata {
     name      = "aws-load-balancer-controller"
     namespace = "kube-system"
@@ -106,7 +106,7 @@ resource "helm_release" "lb" {
   create_namespace = true
 
   depends_on = [
-    kubernetes_service_account_v1.service_account ,
+    kubernetes_service_account_v1.service_account,
     aws_iam_role.lb_controller
   ]
 
