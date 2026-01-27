@@ -46,7 +46,7 @@ variable "tags" {
 
 # EKS CLIENT NODE VARIABLE
 variable "ami_id" {
-  description = "The AMI ID for the Terraform node. Leave empty to automatically fetch the latest Ubuntu AMI."
+  description = "The AMI ID for the Terraform node. Leave empty to automatically fetch the latest Ubuntu AMI"
   type        = string
   default     = ""
 }
