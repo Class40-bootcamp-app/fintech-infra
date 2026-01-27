@@ -106,7 +106,7 @@ resource "helm_release" "lb" {
   create_namespace = true
 
   depends_on = [
-    kubernetes_service_account.service_account,
+    kubernetes_service_account_v1.service_account ,
     aws_iam_role.lb_controller
   ]
 
@@ -129,7 +129,7 @@ resource "helm_release" "lb" {
     },
     {
       name  = "serviceAccount.name"
-      value = kubernetes_service_account.service_account.metadata[0].name
+      value = kubernetes_service_account_v1.service_account.metadata[0].name
     },
     {
       name  = "clusterName"
