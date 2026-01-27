@@ -19,7 +19,7 @@ variable "cluster_name" {
 }
 
 variable "oidc_provider_arn" {
-  description = "OIDC Provider ARN used for IRSA "
+  description = "OIDC Provider ARN used for IRSA"
   type        = string
   sensitive   = true
 }
