@@ -48,7 +48,7 @@ variable "tags" {
   description = "Common tags for the cluster resources"
   type        = map(string)
   default = {
-    env       = "dev",
+    env       = "dev"
     terraform = "true"
   }
 }
